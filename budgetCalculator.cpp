@@ -97,7 +97,7 @@ int main() {
 	} while (true);
 
 	do {
-		cout << "How much was spent on food?\n";
+		cout << "How much was spent on eating out?\n";
 		cin >> foodExpense;
 
 		if (foodExpense >= 0) {
@@ -216,7 +216,7 @@ int main() {
 	cout << "Your total household income is $" << totalIncome << endl;
 	cout << "Your total expense is $" << totalExpense << endl;
 	cout << gasPercent << "% of the income was spent on gas." << endl;
-	cout << foodPercent << "% of the income was spent on food." << endl;
+	cout << foodPercent << "% of the income was spent on eating out." << endl;
 	cout << mortgagePercent << "% of the income was spent on the mortgage." << endl;
 	cout << utilityPercent << "% of the income was spent on utilities." << endl;
 	cout << groceriesPercent << "% of the income was spent on groceries." << endl;
