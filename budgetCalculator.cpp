@@ -42,6 +42,14 @@ int main() {
 	double groceriesExpense;
 	double billsExpense;
 
+
+	double gasPercent;
+	double foodPercent;
+	double mortgagePercent;
+	double utilityPercent;
+	double groceriesPercent;
+	double billsPercent;
+
 	/* Variables that will store
 	percent values of saving and investments*/
 	double savingsPercent;
@@ -241,6 +249,13 @@ int main() {
 		}
 
 		double savingsRate;
+		double investRate;
+		double gasRate;
+		double foodRate;
+		double mortgageRate;
+		double utilityRate;
+		double billRate;
+		double groceriesRate;
 		
 
 		if(programChoice == "budget" || programChoice == "Budget") {
@@ -258,6 +273,7 @@ int main() {
 				else {
 					cout << "Invalid input, please try entering a dollar amount.";
 				}
+
 			} while (true);
 
 			do {
@@ -271,6 +287,7 @@ int main() {
 				else {
 					cout << "Invalid input, please try entering a dollar amount.";
 				}
+
 			} while (true);
 			
 			totalIncome = husbandIncome + wifeIncome;
@@ -284,23 +301,50 @@ int main() {
 					savingsRate = savingsPercent * 0.01;
 					savings = totalIncome * savingsRate;
 
-
-
-					cout << totalIncome<< endl;
-					cout << savingsPercent << endl;
-					cout << savingsRate << endl;
-					cout << savings << endl;
-					return 0;
+					cout << endl;
+					break;
 				}
+
 			} while (true);
 		
 
-			
+			do {
+				cout << "How many percent would you want to allocate towards investment?" << endl;
+				cin >> investmentPercent;
 
+				if (investmentPercent >= 0 && investmentPercent <= 100) {
+
+					investRate = investmentPercent * 0.01;
+					investments = totalIncome * investRate;
+
+					cout << investmentPercent << endl;
+					cout << investRate << endl;	
+					cout << investments << endl;
+
+					break;
+				}
+
+			} while (true);
+
+			
+			do {
+				cout << "How many percent would you want to allocate towards gas expense?" << endl;
+				cin >> gasPercent;
+				
+				if (gasPercent >= 0 && gasPercent <= 100) {
+					gasRate = gasPercent * 0.01;
+					gasExpense = gasRate * totalIncome;
+
+					cout << "$" << gasExpense << endl;
+					return 0;
+				}
+			
+			
+			} while (true);
 		
 		
 		
-		}
+		} 
 
 	} while (true);
 
