@@ -246,7 +246,7 @@ int main() {
 			break;
 
 			
-		}
+		} 
 
 		double savingsRate;
 		double investRate;
@@ -256,6 +256,9 @@ int main() {
 		double utilityRate;
 		double billRate;
 		double groceriesRate;
+		string incomeChoice;
+		double singleIncome;
+		double spouseIncome;
 		
 
 		if(programChoice == "budget" || programChoice == "Budget") {
@@ -263,88 +266,40 @@ int main() {
 			
 
 			do {
-				cout << "How much money does the husband make each month?" << endl;
-				cin >> husbandIncome;
+				cout << "Single income or dual income" << endl;
+				cin >> incomeChoice;
 
-				if (husbandIncome >= 0) {
+				if (incomeChoice == "single" ||incomeChoice == "Single") {
+					cout << "What is your income? " << endl;
+					cin >> singleIncome;
 					cout << endl;
-					break;
-				}
-				else {
-					cout << "Invalid input, please try entering a dollar amount.";
-				}
+					cout << "$" << singleIncome;
+					break;	
+				}				
+			
 
-			} while (true);
-
-			do {
-				cout << "How much money does the wife make each month?" << endl;
-				cin >> wifeIncome;
-
-				if (wifeIncome >= 0) {
+				else if(incomeChoice == "dual" || incomeChoice == "Dual") {
+					cout << "What is your spouse's income? " << endl;
+					cin >> spouseIncome;
 					cout << endl;
-					break;
-				}
-				else {
-					cout << "Invalid input, please try entering a dollar amount.";
-				}
-
-			} while (true);
-			
-			totalIncome = husbandIncome + wifeIncome;
-
-			do {
-				cout << "How many percent from your total income would you want allocated into savings?" << endl;
-				cin >> savingsPercent;
-
-				if (savingsPercent >= 0 && savingsPercent <= 100) {
-					
-					savingsRate = savingsPercent * 0.01;
-					savings = totalIncome * savingsRate;
-
+					cout << "What is your income? " << endl;
+					cin >> singleIncome;
+					totalIncome = singleIncome + spouseIncome;
 					cout << endl;
-					break;
+					cout << "$" << totalIncome;
+					return 0; 
+				} else {
+					cout << "Invalid choice, please try again. " << endl;
 				}
 
-			} while (true);
-		
-
-			do {
-				cout << "How many percent would you want to allocate towards investment?" << endl;
-				cin >> investmentPercent;
-
-				if (investmentPercent >= 0 && investmentPercent <= 100) {
-
-					investRate = investmentPercent * 0.01;
-					investments = totalIncome * investRate;
-
-					cout << investmentPercent << endl;
-					cout << investRate << endl;	
-					cout << investments << endl;
-
-					break;
-				}
 
 			} while (true);
 
 			
-			do {
-				cout << "How many percent would you want to allocate towards gas expense?" << endl;
-				cin >> gasPercent;
-				
-				if (gasPercent >= 0 && gasPercent <= 100) {
-					gasRate = gasPercent * 0.01;
-					gasExpense = gasRate * totalIncome;
-
-					cout << "$" << gasExpense << endl;
-					return 0;
-				}
-			
-			
-			} while (true);
 		
-		
-		
-		} 
+		} else {
+			cout << "Invalid choice, please try again. " << endl;
+		}
 
 	} while (true);
 
