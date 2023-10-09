@@ -6,23 +6,20 @@
 
 using namespace std;
 
-double calculateIncome(double husbandIncome, double wifeIncome) {
+double calculateIncome(double husbandIncome, double wifeIncome)
+{
 	double totalIncome = husbandIncome + wifeIncome;
 	return totalIncome;
 }
 
-double calculateExpense(double gasExpense, double foodExpense, double mortgageExpense, double utilityExpense, double groceriesExpense, double billsExpense) {
+double calculateExpense(double gasExpense, double foodExpense, double mortgageExpense, double utilityExpense, double groceriesExpense, double billsExpense)
+{
 	double totalExpense = gasExpense + foodExpense + mortgageExpense + utilityExpense + groceriesExpense + billsExpense;
 	return totalExpense;
 }
 
-
-
-
-
-
-
-int main() {
+int main()
+{
 
 	/* Variables that will store
 	income, savings and investment
@@ -41,7 +38,6 @@ int main() {
 	double utilityExpense = 0;
 	double groceriesExpense = 0;
 	double billsExpense = 0;
-
 
 	double gasPercent;
 	double foodPercent;
@@ -67,107 +63,130 @@ int main() {
 	string invest;
 	string programChoice;
 
-
-
-do {
+	do
+	{
 		cout << "Which program would you like to run? (Budget or Expense)\n";
 		cin >> programChoice;
 
-	if (programChoice == "expense") {
+		if (programChoice == "expense")
+		{
 
-			do {
+			do
+			{
 				cout << "What is the husband's income?\n";
 				cin >> husbandIncome;
 
-				if (husbandIncome >= 0) {
+				if (husbandIncome >= 0)
+				{
 					break;
 				}
-				else {
+				else
+				{
 					cout << "Invalid input please try to input a numerical value representing a dollar amount\n";
 				}
 			} while (true);
 
-
-			do {
+			do
+			{
 				cout << "What is the wife's income?\n";
 				cin >> wifeIncome;
 
-				if (wifeIncome >= 0) {
+				if (wifeIncome >= 0)
+				{
 					break;
 				}
-				else {
+				else
+				{
 					cout << "Invalid input please try to input a numerical value representing a dollar amount\n";
 				}
 			} while (true);
 
-			do {
+			do
+			{
 				cout << "How much was spent on gas?\n";
 				cin >> gasExpense;
 
-				if (gasExpense >= 0) {
+				if (gasExpense >= 0)
+				{
 					break;
 				}
-				else {
+				else
+				{
 					cout << "Invalid input please try to input a numerical value representing a dollar amount\n";
 				}
 			} while (true);
 
-			do {
+			do
+			{
 				cout << "How much was spent on eating out?\n";
 				cin >> foodExpense;
 
-				if (foodExpense >= 0) {
+				if (foodExpense >= 0)
+				{
 					break;
 				}
-				else {
+				else
+				{
 					cout << "Invalid input please try to input a numerical value representing a dollar amount\n";
 				}
 			} while (true);
 
-			do {
+			do
+			{
 				cout << "How much was spent on the mortgage?\n";
 				cin >> mortgageExpense;
 
-				if (mortgageExpense >= 0) {
+				if (mortgageExpense >= 0)
+				{
 					break;
 				}
-				else {
+				else
+				{
 					cout << "Invalid input please try to input a numerical value representing a dollar amount\n";
 				}
 			} while (true);
 
-			do {
+			do
+			{
 				cout << "How much was spent on utilities?\n";
 				cin >> utilityExpense;
 
-				if (utilityExpense >= 0) {
+				if (utilityExpense >= 0)
+				{
 					break;
 				}
-				else {
+				else
+				{
 					cout << "Invalid input please try to input a numerical value representing a dollar amount\n";
 				}
 			} while (true);
 
-			do {
+			do
+			{
 				cout << "How much was spent on groceries?\n";
 				cin >> groceriesExpense;
 
-				if (groceriesExpense >= 0) {
+				if (groceriesExpense >= 0)
+				{
 					break;
 				}
-				else {
+				else
+				{
 					cout << "Invalid input please try to input a numerical value representing a dollar amount\n";
 				}
 			} while (true);
 
-			do {
+			do
+			{
 				cout << "How much was spent on bills?\n";
 				cin >> billsExpense;
 
-				if (billsExpense >= 0) {
+				if (billsExpense >= 0)
+				{
 					break;
 				}
-				else {
+				else
+				{
 					cout << "Invalid input please try to input a numerical value representing a dollar amount\n";
 				}
 			} while (true);
@@ -191,27 +210,30 @@ do {
 			double groceriesPercent = (groceriesExpense / totalIncome) * 100;
 			double billsPercent = (billsExpense / totalIncome) * 100;
 
-			if (save == "yes" || save == "Yes" || save == "Y" || save == "y") {
+			if (save == "yes" || save == "Yes" || save == "Y" || save == "y")
+			{
 				cout << "How much did you set aside into savings?\n";
 				cin >> savings;
 			}
 
-			else if (save == "no" || save == "No" || save == "n" || save == "N") {
+			else if (save == "no" || save == "No" || save == "n" || save == "N")
+			{
 				cout << endl;
 				savings = 0;
 			}
 
-			if (invest == "yes" || invest == "Yes" || invest == "Y" || invest == "y") {
+			if (invest == "yes" || invest == "Yes" || invest == "Y" || invest == "y")
+			{
 				cout << "How much was set aside for investments?\n";
 				cin >> investments;
 			}
 
-			else if (invest == "no" || invest == "No" || invest == "n" || invest == "N") {
+			else if (invest == "no" || invest == "No" || invest == "n" || invest == "N")
+			{
 
 				cout << endl;
 				investments = 0;
 			}
-
 
 			totalIncome = calculateIncome(husbandIncome, wifeIncome);
 			totalExpense = calculateExpense(gasExpense, foodExpense, mortgageExpense, utilityExpense, groceriesExpense, billsExpense);
@@ -223,7 +245,8 @@ do {
 
 			cout << endl;
 
-			if (totalExpense > totalIncome) {
+			if (totalExpense > totalIncome)
+			{
 				cout << "How the fuck are you going to spend more than you make???\n";
 			}
 
@@ -244,9 +267,7 @@ do {
 
 			cout << endl;
 			break;
-
-			
-		} 
+		}
 
 		double savingsRate;
 		double investRate;
@@ -262,165 +283,163 @@ do {
 		const int arraySize = 3;
 		string topExpense[arraySize];
 
+		if (programChoice == "budget" || programChoice == "Budget")
+		{
 
-	if(programChoice == "budget" || programChoice == "Budget") {
-			
-			
+			do
+			{
+				cout << "Single income or dual income" << endl;
+				cin >> incomeChoice;
 
-		do {
-			cout << "Single income or dual income" << endl;
-			cin >> incomeChoice;
-
-			if (incomeChoice == "single" ||incomeChoice == "Single") {
+				if (incomeChoice == "single" || incomeChoice == "Single")
+				{
 					cout << "What is your income? " << endl;
 					cin >> singleIncome;
 					cout << endl;
 					cout << "$" << singleIncome << endl;
-					
-					
-					
 
+					for (int i = 0; i < arraySize; i++)
+					{
+						cout << "Top 3 expenses? " << endl;
+						cin >> topExpense[i];
+					}
 
+					for (int i = 0; i < arraySize; i++)
+					{
+						do
+						{
 
-			for(int i = 0; i < arraySize; i++ ) {
-				cout << "Top 3 expenses? " << endl;
-				cin >> topExpense[i];
+							if (topExpense[i] == "gas" || topExpense[i] == "Gas")
+							{
+								cout << "What is your monthly cost of gas? " << endl;
+								cin >> gasExpense;
+								break;
+							}
+							if (topExpense[i] == "food" || topExpense[i] == "Food")
+							{
+								cout << "What is your monthly cost of eating out? " << endl;
+								cin >> foodExpense;
+								break;
+							}
+							if (topExpense[i] == "mortgage" || topExpense[i] == "Mortgage" || topExpense[i] == "rent" || topExpense[i] == "Rent")
+							{
+								cout << "What is your monthly cost of mortgage/rent? " << endl;
+								cin >> mortgageExpense;
+								break;
+							}
+							if (topExpense[i] == "groceries" || topExpense[i] == "Groceries")
+							{
+								cout << "What is your monthly cost of groceries? " << endl;
+								cin >> groceriesExpense;
+								break;
+							}
+							if (topExpense[i] == "bills" || topExpense[i] == "Bills")
+							{
+								cout << "What is your monthly cost of bills (non-utility)? " << endl;
+								cin >> billsExpense;
+								break;
+							}
+							if (topExpense[i] == "utility" || topExpense[i] == "Utilitiy" || topExpense[i] == "Utilities" || topExpense[i] == "utilities")
+							{
+								cout << "What is your monthly cost of eating out? " << endl;
+								cin >> utilityExpense;
+								break;
+							}
+
+						} while (true);
+					}
+					cout << endl;
+					cout << "Gas expense: $" << gasExpense << endl;
+					cout << "Food expense: $" << foodExpense << endl;
+					cout << "Mortgage/Rent expense: $" << mortgageExpense << endl;
+					cout << "Groceries expense: $" << groceriesExpense << endl;
+					cout << "Bills expense: $" << billsExpense << endl;
+					cout << "Utility expense: $" << utilityExpense << endl;
+					break;
 				}
 
-			for (int i = 0; i < arraySize; i++) {
-				do{
-					
-					if(topExpense[i] == "gas" || topExpense[i] == "Gas") {
-					cout << "What is your monthly cost of gas? " << endl;
-					cin >> gasExpense;
-					break;
-					} 
-					if(topExpense[i] == "food" || topExpense[i] == "Food") {
-					cout << "What is your monthly cost of eating out? " << endl;
-					cin >> foodExpense;
-					break;
-					}
-					if(topExpense[i] == "mortgage" || topExpense[i] == "Mortgage" || topExpense[i] == "rent" || topExpense[i] == "Rent") {
-					cout << "What is your monthly cost of mortgage/rent? " << endl;
-					cin >> mortgageExpense;
-					break;
-					}
-					if(topExpense[i] == "groceries" || topExpense[i] == "Groceries") {
-					cout << "What is your monthly cost of groceries? " << endl;
-					cin >> groceriesExpense;
-					break;
-					}
-					if(topExpense[i] == "bills" || topExpense[i] == "Bills") {
-					cout << "What is your monthly cost of bills (non-utility)? " << endl;
-					cin >> billsExpense;
-					break;
-					}
-					if(topExpense[i] == "utility" || topExpense[i] == "Utilitiy" || topExpense[i] == "Utilities" || topExpense[i] == "utilities") {
-					cout << "What is your monthly cost of eating out? " << endl;
-					cin >> utilityExpense;
-					break;
-					}
-				
-				}while(true);		
-			}
-cout << endl;
-cout << "Gas expense: $" << gasExpense << endl;
-cout << "Food expense: $" << foodExpense << endl;
-cout << "Mortgage/Rent expense: $" << mortgageExpense << endl;
-cout << "Groceries expense: $" << groceriesExpense << endl;
-cout << "Bills expense: $" << billsExpense << endl;
-cout << "Utility expense: $" << utilityExpense << endl;
-			break;}
-										
-			
-				
-			if(incomeChoice == "dual" || incomeChoice == "Dual") {
-				cout << "What is your spouse's income? " << endl;
-				cin >> spouseIncome;
-				cout << endl;
-				cout << "What is your income? " << endl;
-				cin >> singleIncome;
-				totalIncome = singleIncome + spouseIncome;
-				cout << endl;
-				cout << "$" << totalIncome << endl;
-				
+				if (incomeChoice == "dual" || incomeChoice == "Dual")
+				{
+					cout << "What is your spouse's income? " << endl;
+					cin >> spouseIncome;
+					cout << endl;
+					cout << "What is your income? " << endl;
+					cin >> singleIncome;
+					totalIncome = singleIncome + spouseIncome;
+					cout << endl;
+					cout << "$" << totalIncome << endl;
 
-				for(int i = 0; i < arraySize; i++ ) {
-				cout << "Top 3 expenses? " << endl;
-				cin >> topExpense[i];
+					for (int i = 0; i < arraySize; i++)
+					{
+						cout << "Top 3 expenses? " << endl;
+						cin >> topExpense[i];
+					}
+
+					for (int i = 0; i < arraySize; i++)
+					{
+						do
+						{
+
+							if (topExpense[i] == "gas" || topExpense[i] == "Gas")
+							{
+								cout << "What is your monthly cost of gas? " << endl;
+								cin >> gasExpense;
+								break;
+							}
+							if (topExpense[i] == "food" || topExpense[i] == "Food")
+							{
+								cout << "What is your monthly cost of eating out? " << endl;
+								cin >> foodExpense;
+								break;
+							}
+							if (topExpense[i] == "mortgage" || topExpense[i] == "Mortgage" || topExpense[i] == "rent" || topExpense[i] == "Rent")
+							{
+								cout << "What is your monthly cost of mortgage/rent? " << endl;
+								cin >> mortgageExpense;
+								break;
+							}
+							if (topExpense[i] == "groceries" || topExpense[i] == "Groceries")
+							{
+								cout << "What is your monthly cost of groceries? " << endl;
+								cin >> groceriesExpense;
+								break;
+							}
+							if (topExpense[i] == "bills" || topExpense[i] == "Bills")
+							{
+								cout << "What is your monthly cost of bills (non-utility)? " << endl;
+								cin >> billsExpense;
+								break;
+							}
+							if (topExpense[i] == "utility" || topExpense[i] == "Utilitiy" || topExpense[i] == "Utilities" || topExpense[i] == "utilities")
+							{
+								cout << "What is your monthly cost of eating out? " << endl;
+								cin >> utilityExpense;
+								break;
+							}
+
+						} while (true);
+					}
 				}
-
-			for (int i = 0; i < arraySize; i++) {
-				do{
-					
-					if(topExpense[i] == "gas" || topExpense[i] == "Gas") {
-					cout << "What is your monthly cost of gas? " << endl;
-					cin >> gasExpense;
-					break;
-					} 
-					if(topExpense[i] == "food" || topExpense[i] == "Food") {
-					cout << "What is your monthly cost of eating out? " << endl;
-					cin >> foodExpense;
-					break;
-					}
-					if(topExpense[i] == "mortgage" || topExpense[i] == "Mortgage" || topExpense[i] == "rent" || topExpense[i] == "Rent") {
-					cout << "What is your monthly cost of mortgage/rent? " << endl;
-					cin >> mortgageExpense;
-					break;
-					}
-					if(topExpense[i] == "groceries" || topExpense[i] == "Groceries") {
-					cout << "What is your monthly cost of groceries? " << endl;
-					cin >> groceriesExpense;
-					break;
-					}
-					if(topExpense[i] == "bills" || topExpense[i] == "Bills") {
-					cout << "What is your monthly cost of bills (non-utility)? " << endl;
-					cin >> billsExpense;
-					break;
-					}
-					if(topExpense[i] == "utility" || topExpense[i] == "Utilitiy" || topExpense[i] == "Utilities" || topExpense[i] == "utilities") {
-					cout << "What is your monthly cost of eating out? " << endl;
-					cin >> utilityExpense;
-					break;
-					}
-				
-				}while(true);		
-			}
-
-
-				} else {
+				else
+				{
 					cout << "Invalid choice, please try again. " << endl;
 				}
-				
-			break;
-			} while (true);
-		
-cout << endl;
-cout << "Gas expense: $" << gasExpense << endl;
-cout << "Food expense: $" << foodExpense << endl;
-cout << "Mortgage/Rent expense: $" << mortgageExpense << endl;
-cout << "Groceries expense: $" << groceriesExpense << endl;
-cout << "Bills expense: $" << billsExpense << endl;
-cout << "Utility expense: $" << utilityExpense << endl;
 
-			
-		break;
-		} 
+				break;
+			} while (true);
+
+			cout << endl;
+			cout << "Gas expense: $" << gasExpense << endl;
+			cout << "Food expense: $" << foodExpense << endl;
+			cout << "Mortgage/Rent expense: $" << mortgageExpense << endl;
+			cout << "Groceries expense: $" << groceriesExpense << endl;
+			cout << "Bills expense: $" << billsExpense << endl;
+			cout << "Utility expense: $" << utilityExpense << endl;
+
+			break;
+		}
 
 	} while (true);
 
-
-
-
 	return 0;
 }
-
-
-
-
-
-
-
-
-
-
