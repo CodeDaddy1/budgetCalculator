@@ -62,8 +62,23 @@ int main()
 	string save;
 	string invest;
 	string programChoice;
+	string endProgram;
 
 	do {
+
+		do{
+		cout << "Do you want to end the program? " << endl;
+		cin >> endProgram;
+
+		if(endProgram == "yes" || endProgram == "Yes" || endProgram == "y" || endProgram == "Y"){
+			return 0;
+		}
+		else {
+			break;
+		}
+
+	} while(true);
+
 		cout << "Which program would you like to run? (Budget or Expense)\n";
 		cin >> programChoice;
 
@@ -302,7 +317,7 @@ int main()
 								cin >> utilityExpense;
 								break;
 							}
-
+							break;
 						} while (true);
 					}
 					cout << endl;
@@ -312,7 +327,7 @@ int main()
 					cout << "Groceries expense: $" << groceriesExpense << endl;
 					cout << "Bills expense: $" << billsExpense << endl;
 					cout << "Utility expense: $" << utilityExpense << endl;
-					break;
+					
 				}
 
 				if (incomeChoice == "dual" || incomeChoice == "Dual") {
@@ -381,11 +396,12 @@ int main()
 			cout << "Groceries expense: $" << groceriesExpense << endl;
 			cout << "Bills expense: $" << billsExpense << endl;
 			cout << "Utility expense: $" << utilityExpense << endl;
-
+			
 			
 		}
 
-	} while (true);
 
-	return 0;
+
+	} while (true);
+	
 }
