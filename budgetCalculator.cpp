@@ -6,9 +6,9 @@
 
 using namespace std;
 
-double calculateIncome(double husbandIncome, double wifeIncome)
+double calculateIncome(double singleIncome, double spouseIncome)
 {
-	double totalIncome = husbandIncome + wifeIncome;
+	double totalIncome = singleIncome + spouseIncome;
 	return totalIncome;
 }
 
@@ -25,8 +25,8 @@ int main()
 	income, savings and investment
 	in dollar amount*/
 	double totalIncome;
-	double husbandIncome;
-	double wifeIncome;
+	double singleIncome;
+	double spouseIncome;
 	double savings = 0;
 	double investments = 0;
 
@@ -70,10 +70,10 @@ int main()
 		if (programChoice == "expense") {
 
 			do {
-				cout << "What is the husband's income?\n";
-				cin >> husbandIncome;
+				cout << "What is your income?\n";
+				cin >> singleIncome;
 
-				if (husbandIncome >= 0) {
+				if (singleIncome >= 0) {
 					break;
 				}
 				else {
@@ -82,10 +82,10 @@ int main()
 			} while (true);
 
 			do {
-				cout << "What is the wife's income?\n";
-				cin >> wifeIncome;
+				cout << "What is the spouse's income?\n";
+				cin >> spouseIncome;
 
-				if (wifeIncome >= 0) {
+				if (spouseIncome >= 0) {
 					break;
 				}
 				else {
@@ -175,7 +175,7 @@ int main()
 
 			cout << setprecision(2) << fixed;
 
-			totalIncome = husbandIncome + wifeIncome;
+			totalIncome = singleIncome + spouseIncome;
 
 			double gasPercent = (gasExpense / totalIncome) * 100;
 			double foodPercent = (foodExpense / totalIncome) * 100;
@@ -205,7 +205,7 @@ int main()
 				investments = 0;
 			}
 
-			totalIncome = calculateIncome(husbandIncome, wifeIncome);
+			totalIncome = calculateIncome(singleIncome, spouseIncome);
 			totalExpense = calculateExpense(gasExpense, foodExpense, mortgageExpense, utilityExpense, groceriesExpense, billsExpense);
 			piggyBank = savings + investments;
 			piggyBankPercent = (piggyBank / totalIncome) * 100;
@@ -235,7 +235,7 @@ int main()
 			cout << "Your remaining cash available is $" << moneyRemaining;
 
 			cout << endl;
-			break;
+			
 		}
 
 		double savingsRate;
@@ -371,7 +371,7 @@ int main()
 					cout << "Invalid choice, please try again. " << endl;
 				}
 
-				break;
+			break;	
 			} while (true);
 
 			cout << endl;
@@ -382,7 +382,7 @@ int main()
 			cout << "Bills expense: $" << billsExpense << endl;
 			cout << "Utility expense: $" << utilityExpense << endl;
 
-			break;
+			
 		}
 
 	} while (true);
