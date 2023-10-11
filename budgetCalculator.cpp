@@ -62,19 +62,19 @@ int main()
 	string save;
 	string invest;
 	string programChoice;
-	string endProgram;
+	string startProgram;
 
 	do {
 
 		do{
-		cout << "Do you want to end the program? " << endl;
-		cin >> endProgram;
+		cout << "Do you want to start the program? " << endl;
+		cin >> startProgram;
 
-		if(endProgram == "yes" || endProgram == "Yes" || endProgram == "y" || endProgram == "Y"){
-			return 0;
+		if(startProgram == "yes" || startProgram == "Yes" || startProgram == "y" || startProgram == "Y"){
+			break;
 		}
 		else {
-			break;
+			return 0;
 		}
 
 	} while(true);
@@ -317,7 +317,7 @@ int main()
 								cin >> utilityExpense;
 								break;
 							}
-							break;
+							
 						} while (true);
 					}
 					cout << endl;
@@ -382,9 +382,7 @@ int main()
 						} while (true);
 					}
 				}
-				else {
-					cout << "Invalid choice, please try again. " << endl;
-				}
+				
 
 			break;	
 			} while (true);
