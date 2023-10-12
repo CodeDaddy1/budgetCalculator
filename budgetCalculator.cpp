@@ -74,7 +74,11 @@ int main()
 			break;
 		}
 		else {
+			cout << endl;
+			cout << "Ending program, goodbye. " << endl;
+			cout << endl;
 			return 0;
+			
 		}
 
 	} while(true);
