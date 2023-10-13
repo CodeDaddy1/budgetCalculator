@@ -1,94 +1,55 @@
 #include <iostream>
-#include <string>
-#include <cmath>
 #include <iomanip>
+#include <string>
+#include <vector>
 #include <limits>
+
+
 
 using namespace std;
 
-double calculateIncome(double singleIncome, double spouseIncome)
-{
+
+double calculateIncome(double singleIncome, double spouseIncome) {
 	double totalIncome = singleIncome + spouseIncome;
 	return totalIncome;
 }
 
-double calculateExpense(double gasExpense, double foodExpense, double mortgageExpense, double utilityExpense, double groceriesExpense, double billsExpense)
-{
+double calculateExpense(double gasExpense, double foodExpense, double mortgageExpense, double utilityExpense, double groceriesExpense, double billsExpense){
 	double totalExpense = gasExpense + foodExpense + mortgageExpense + utilityExpense + groceriesExpense + billsExpense;
 	return totalExpense;
 }
 
-int main()
-{
+void expenseMode(int programChoice){
 
-	/* Variables that will store
-	income, savings and investment
-	in dollar amount*/
 	double totalIncome;
 	double singleIncome;
 	double spouseIncome;
 	double savings = 0;
 	double investments = 0;
-
-	/* Variables that will store
-	all expenses in dollar amount*/
+	
 	double gasExpense = 0;
 	double foodExpense = 0;
 	double mortgageExpense = 0;
 	double utilityExpense = 0;
 	double groceriesExpense = 0;
 	double billsExpense = 0;
-
-	double gasPercent;
-	double foodPercent;
-	double mortgagePercent;
-	double utilityPercent;
-	double groceriesPercent;
-	double billsPercent;
-
-	/* Variables that will store
-	percent values of saving and investments*/
+	
+	
+	
 	double savingsPercent;
 	double investmentPercent;
 	double piggyBank;
 	double piggyBankPercent;
-
-	/* Variables that will store
-	total income, total expense,
-	money remaining after expense and savings*/
+	
 	double totalExpense;
 	double moneyRemaining = 0;
-
 	string save;
 	string invest;
-	string programChoice;
-	string startProgram;
+	
+
+
 
 	do {
-
-		do{
-		cout << "Do you want to start the program? " << endl;
-		cin >> startProgram;
-
-		if(startProgram == "yes" || startProgram == "Yes" || startProgram == "y" || startProgram == "Y"){
-			break;
-		}
-		else {
-			cout << endl;
-			cout << "Ending program, goodbye. " << endl;
-			cout << endl;
-			return 0;
-			
-		}
-
-	} while(true);
-
-		cout << "Which program would you like to run? (Budget or Expense)\n";
-		cin >> programChoice;
-
-		if (programChoice == "expense") {
-
-			do {
 				cout << "What is your income?\n";
 				cin >> singleIncome;
 
@@ -231,7 +192,6 @@ int main()
 			savingsPercent = (savings / totalIncome) * 100;
 			investmentPercent = (investments / totalIncome) * 100;
 			moneyRemaining = totalIncome - totalExpense - piggyBank;
-
 			cout << endl;
 
 			if (totalExpense > totalIncome) {
@@ -254,9 +214,36 @@ int main()
 			cout << "Your remaining cash available is $" << moneyRemaining;
 
 			cout << endl;
-			
-		}
 
+}
+
+int budgetMode(int programChoice){
+
+
+	double totalIncome;
+	double singleIncome;
+	double spouseIncome;
+	double savings = 0;
+	double investments = 0;
+	
+	double gasExpense = 0;
+	double foodExpense = 0;
+	double mortgageExpense = 0;
+	double utilityExpense = 0;
+	double groceriesExpense = 0;
+	double billsExpense = 0;
+	
+	
+	
+	double savingsPercent;
+	double investmentPercent;
+	double piggyBank;
+	double piggyBankPercent;
+	
+	double totalExpense;
+	double moneyRemaining = 0;
+	string save;
+	string invest;
 		double savingsRate;
 		double investRate;
 		double gasRate;
@@ -266,13 +253,10 @@ int main()
 		double billRate;
 		double groceriesRate;
 		string incomeChoice;
-		double singleIncome;
-		double spouseIncome;
 		const int arraySize = 3;
 		string topExpense[arraySize];
 
-		if (programChoice == "budget" || programChoice == "Budget") {
-
+		
 			do {
 				cout << "Single income or dual income" << endl;
 				cin >> incomeChoice;
@@ -400,10 +384,117 @@ int main()
 			cout << "Utility expense: $" << utilityExpense << endl;
 			
 			
-		}
+		
 
 
-
-	} while (true);
-	
 }
+
+int main(){
+	
+	
+
+
+	
+	
+	
+	double totalIncome;
+	double singleIncome;
+	double spouseIncome;
+	double savings = 0;
+	double investments = 0;
+	
+	double gasExpense = 0;
+	double foodExpense = 0;
+	double mortgageExpense = 0;
+	double utilityExpense = 0;
+	double groceriesExpense = 0;
+	double billsExpense = 0;
+	
+	double gasPercent;
+	double foodPercent;
+	double mortgagePercent;
+	double utilityPercent;
+	double groceriesPercent;
+	double billsPercent;
+
+	double savingsPercent;
+	double investmentPercent;
+	double piggyBank;
+	double piggyBankPercent;
+	
+	double totalExpense;
+	double moneyRemaining = 0;
+	
+	string save;
+	string invest;
+	string startProgram;
+	int programChoice;
+
+	double savingsRate;
+	double investRate;
+	double gasRate;
+	double foodRate;
+	double mortgageRate;
+	double utilityRate;
+	double billRate;
+	double groceriesRate;
+	string incomeChoice;
+	const int arraySize = 3;
+	string topExpense[arraySize];
+	
+
+
+		do{
+		cout << "Do you want to start the program? " << endl;
+		cin >> startProgram;
+
+		if(startProgram == "yes" || startProgram == "Yes" || startProgram == "y" || startProgram == "Y"){
+		
+
+	cout << "Which program would you like to run? " << endl;
+	cout << "1: Expense Mode " << endl; 
+	cout << "2: Budget Mode " << endl;
+	cin >> programChoice;
+	
+
+
+	switch(programChoice){
+		
+		
+		case 1: cout << "You have chosen expense mode " << endl;
+			expenseMode(programChoice);
+		break;
+
+		case 2: cout << "You have chosen budget mode " << endl;
+			budgetMode(programChoice);
+		break;
+
+		default: cout << "Invalid choice, please try again " << endl;	
+
+	} 	
+			
+		}
+		else {
+			cout << endl;
+			cout << "Ending program, goodbye. " << endl;
+			cout << endl;
+			return 0;
+			
+		}
+	
+	
+		}while(true);
+	return 0;
+}
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
