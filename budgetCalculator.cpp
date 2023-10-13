@@ -217,7 +217,7 @@ void expenseMode(int programChoice){
 
 }
 
-int budgetMode(int programChoice){
+void budgetMode(int programChoice){
 
 
 	double totalIncome;
@@ -386,8 +386,8 @@ int budgetMode(int programChoice){
 			
 		
 
-
 }
+
 
 int main(){
 	
@@ -444,11 +444,11 @@ int main(){
 	
 
 
-		do{
-		cout << "Do you want to start the program? " << endl;
-		cin >> startProgram;
+	do{
+	cout << "Would you like to continue the program?? " << endl;
+	cin >> startProgram;
 
-		if(startProgram == "yes" || startProgram == "Yes" || startProgram == "y" || startProgram == "Y"){
+	if(startProgram == "yes" || startProgram == "Yes" || startProgram == "y" || startProgram == "Y"){
 		
 
 	cout << "Which program would you like to run? " << endl;
