@@ -43,6 +43,7 @@ void expenseMode(int programChoice){
 	
 	double totalExpense;
 	double moneyRemaining = 0;
+	double remainingPercent;
 	string save;
 	string invest;
 	
@@ -192,6 +193,8 @@ void expenseMode(int programChoice){
 			savingsPercent = (savings / totalIncome) * 100;
 			investmentPercent = (investments / totalIncome) * 100;
 			moneyRemaining = totalIncome - totalExpense - piggyBank;
+			remainingPercent = (moneyRemaining / totalIncome) * 100;
+
 			cout << endl;
 
 			if (totalExpense > totalIncome) {
@@ -202,6 +205,7 @@ void expenseMode(int programChoice){
 
 			cout << "Your total household income is $" << totalIncome << endl;
 			cout << "Your total expense is $" << totalExpense << endl;
+			cout << endl;
 			cout << gasPercent << "% of the income was spent on gas." << endl;
 			cout << foodPercent << "% of the income was spent on eating out." << endl;
 			cout << mortgagePercent << "% of the income was spent on the mortgage." << endl;
@@ -211,9 +215,8 @@ void expenseMode(int programChoice){
 			cout << endl;
 			cout << "Your total amount set aside for savings and investment is $" << piggyBank << endl;
 			cout << "This accounts for " << piggyBankPercent << "% of the total household income." << endl;
-			cout << "Your remaining cash available is $" << moneyRemaining;
+			cout << "Your remaining cash available is, $" << moneyRemaining << " this is " << remainingPercent << "% of the total income." << endl;
 
-			cout << endl;
 
 }
 
@@ -301,10 +304,10 @@ void budgetMode(int programChoice){
 								break;
 							}
 							if (topExpense[i] == "utility" || topExpense[i] == "Utilitiy" || topExpense[i] == "Utilities" || topExpense[i] == "utilities") {
-								cout << "What is your monthly cost of eating out? " << endl;
+								cout << "What is your monthly cost of utilities? " << endl;
 								cin >> utilityExpense;
 								break;
-							}
+							} 
 							
 						} while (true);
 					}
@@ -362,7 +365,7 @@ void budgetMode(int programChoice){
 								break;
 							}
 							if (topExpense[i] == "utility" || topExpense[i] == "Utilitiy" || topExpense[i] == "Utilities" || topExpense[i] == "utilities") {
-								cout << "What is your monthly cost of eating out? " << endl;
+								cout << "What is your monthly cost of utilities? " << endl;
 								cin >> utilityExpense;
 								break;
 							}
@@ -447,6 +450,7 @@ int main(){
 	do{
 	cout << "Would you like to continue the program?? " << endl;
 	cin >> startProgram;
+	cout << endl;
 
 	if(startProgram == "yes" || startProgram == "Yes" || startProgram == "y" || startProgram == "Y"){
 		
@@ -455,6 +459,8 @@ int main(){
 	cout << "1: Expense Mode " << endl; 
 	cout << "2: Budget Mode " << endl;
 	cin >> programChoice;
+	cout << endl;
+
 	
 
 
