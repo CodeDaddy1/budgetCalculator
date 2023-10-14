@@ -570,17 +570,20 @@ int main(){
 
 
 	do{
+	std::cout << "Choose an option: " << endl;
 	std::cout << endl;
-	std::cout << "Would you like to continue the program?? " << endl;
+	std::cout << "1: Commence Program " << endl;
+	std::cout << "2: Cease Program " << endl;
 	std::cin >> startProgram;
 	std::cout << endl;
 
-	if(startProgram == "yes" || startProgram == "Yes" || startProgram == "y" || startProgram == "Y"){
+	if(startProgram == "yes" || startProgram == "Yes" || startProgram == "y" || startProgram == "Y" || startProgram == "1"){
 		
 
 	std::cout << "Which program would you like to run? " << endl;
 	std::cout << "1: Expense Mode " << endl; 
 	std::cout << "2: Budget Mode " << endl;
+	std::cout << "3: Exit " << endl;
 	std::cin >> programChoice;
 	std::cout << endl;
 
@@ -590,13 +593,22 @@ int main(){
 	switch(programChoice){
 		
 		
-		case 1: cout << "You have chosen expense mode " << endl;
+		case 1: 
+			std::cout << "Initiating expense mode... " << endl;
+			std::cout << endl;
 			expenseMode(programChoice);
 		break;
 
-		case 2: cout << "You have chosen budget mode " << endl;
+		case 2: 
+			std::cout << "Initiating budget mode... " << endl;
+			std::cout <<endl;
 			budgetMode(programChoice);
 		break;
+
+		case 3: 
+			std::cout << endl;
+			std::cout << "Ending program, goodbye. " << endl;
+			return 0;
 
 		default: cout << "Invalid choice, please try again " << endl;	
 
