@@ -14,8 +14,8 @@ double calculateIncome(double singleIncome, double spouseIncome) {
 	return totalIncome;
 }
 
-double calculateExpense(double gasExpense, double foodExpense, double mortgageExpense, double utilityExpense, double groceriesExpense, double billsExpense){
-	double totalExpense = gasExpense + foodExpense + mortgageExpense + utilityExpense + groceriesExpense + billsExpense;
+double calculateExpense(double transportationExpense, double foodExpense, double mortgageExpense, double utilityExpense, double groceriesExpense, double billsExpense){
+	double totalExpense = transportationExpense + foodExpense + mortgageExpense + utilityExpense + groceriesExpense + billsExpense;
 	return totalExpense;
 }
 
@@ -34,7 +34,7 @@ void maxHousingRule(double housingPercent, double const MAXHOUSING){
 
 	int adjustBudget;
 	string expenseCut;
-	std:: string expenseList[]= {"food", "Food", "gas", "Gas", "bills", "Bills", "utility", "Utility", "utilities", "Utilities", "mortgage", "Mortgage", "rent", "Rent", "groceries", "Groceries"};
+	std:: string expenseList[]= {"food", "Food", "transportation", "Transportation", "bills", "Bills", "utility", "Utility", "utilities", "Utilities", "mortgage", "Mortgage", "rent", "Rent", "groceries", "Groceries"};
 	bool isValid = false;
 	double cutAmount = 0.00;
 
@@ -86,7 +86,7 @@ void expenseMode(int programChoice){
 	double savings = 0;
 	double investments = 0;
 	
-	double gasExpense = 0;
+	double transportationExpense = 0;
 	double foodExpense = 0;
 	double mortgageExpense = 0;
 	double utilityExpense = 0;
@@ -134,10 +134,10 @@ void expenseMode(int programChoice){
 			} while (true);
 
 			do {
-				std::cout << "How much was spent on gas?\n";
-				std:: cin >> gasExpense;
+				std::cout << "How much was spent on transportation?\n";
+				std:: cin >> transportationExpense;
 
-				if (gasExpense >= 0) {
+				if (transportationExpense >= 0) {
 					break;
 				}
 				else {
@@ -207,46 +207,69 @@ void expenseMode(int programChoice){
 
 			std:: cin.ignore();
 
+
+			do{
 			std::cout << "Do you put money in savings?\n";
 			std:: getline(std::cin, save);
 
+			
+				if (save == "yes" || save == "Yes" || save == "Y" || save == "y") {
+				std::cout << "How much did you set aside into savings?\n";
+				std::cin >> savings;
+				break;
+			}
+
+				if (save == "no" || save == "No" || save == "n" || save == "N") {
+				std::cout << endl;
+				savings = 0;
+				break;
+			}
+			else {
+				cout << "Invalid choice, please try again. " << endl;
+			}
+			}while(true);
+
+			do{
 			std::cout << "Do you put money aside for investing?\n";
 			std::getline(std::cin, invest);
+
+				if (invest == "yes" || invest == "Yes" || invest == "Y" || invest == "y") {
+				std::cout << "How much was set aside for investments?\n";
+				std::cin >> investments;
+				break;
+			}
+
+				if (invest == "no" || invest == "No" || invest == "n" || invest == "N") {
+				std::cout << endl;
+				investments = 0;
+				break;
+			}
+			else {
+				cout << "Invalid choice, please try again. " << endl;
+			}
+			}while(true);
+
+
 
 			std::cout << setprecision(2) << fixed;
 
 			totalIncome = singleIncome + spouseIncome;
 
-			double gasPercent = (gasExpense / totalIncome) * 100;
+			double transportationPercent = (transportationExpense / totalIncome) * 100;
 			double foodPercent = (foodExpense / totalIncome) * 100;
 			double mortgagePercent = (mortgageExpense / totalIncome) * 100;
 			double utilityPercent = (utilityExpense / totalIncome) * 100;
 			double groceriesPercent = (groceriesExpense / totalIncome) * 100;
 			double billsPercent = (billsExpense / totalIncome) * 100;
 
-			if (save == "yes" || save == "Yes" || save == "Y" || save == "y") {
-				std::cout << "How much did you set aside into savings?\n";
-				std::cin >> savings;
-			}
 
-			else if (save == "no" || save == "No" || save == "n" || save == "N") {
-				std::cout << endl;
-				savings = 0;
-			}
-
-			if (invest == "yes" || invest == "Yes" || invest == "Y" || invest == "y") {
-				std::cout << "How much was set aside for investments?\n";
-				std::cin >> investments;
-			}
-
-			else if (invest == "no" || invest == "No" || invest == "n" || invest == "N") {
-
-				std::cout << endl;
-				investments = 0;
-			}
+			
+			
+			
+			
 
 			totalIncome = calculateIncome(singleIncome, spouseIncome);
-			totalExpense = calculateExpense(gasExpense, foodExpense, mortgageExpense, utilityExpense, groceriesExpense, billsExpense);
+			totalExpense = calculateExpense(transportationExpense, foodExpense, mortgageExpense, utilityExpense, groceriesExpense, billsExpense);
 			piggyBank = savings + investments;
 			piggyBankPercent = (piggyBank / totalIncome) * 100;
 			savingsPercent = (savings / totalIncome) * 100;
@@ -265,7 +288,7 @@ void expenseMode(int programChoice){
 			std::cout << "Your total household income is $" << totalIncome << endl;
 			std::cout << "Your total expense is $" << totalExpense << endl;
 			std::cout << endl;
-			std::cout << gasPercent << "% of the income was spent on gas." << endl;
+			std::cout << transportationPercent << "% of the income was spent on transportation." << endl;
 			std::cout << foodPercent << "% of the income was spent on eating out." << endl;
 			std::cout << mortgagePercent << "% of the income was spent on the mortgage." << endl;
 			std::cout << utilityPercent << "% of the income was spent on utilities." << endl;
@@ -288,13 +311,14 @@ void budgetMode(int programChoice){
 	double savings = 0;
 	double investments = 0;
 	
-	double gasExpense = 0;
+	double transportationExpense = 0;
 	double foodExpense = 0;
 	double mortgageExpense = 0;
 	double utilityExpense = 0;
 	double groceriesExpense = 0;
 	double billsExpense = 0;
-	double housingExpense =0;
+	double housingExpense = 0;
+	double wantsExpense = 0;
 	const double MAXHOUSING = 35.00;
 	int adjustBudget;
 	
@@ -314,7 +338,7 @@ void budgetMode(int programChoice){
 
 	double savingsRate;
 	double investRate;
-	double gasRate;
+	double transportationRate;
 	double foodRate;
 	double mortgageRate;
 	double utilityRate;
@@ -344,9 +368,9 @@ void budgetMode(int programChoice){
 					for (int i = 0; i < arraySize; i++) {
 						do {
 
-							if (topExpense[i] == "gas" || topExpense[i] == "Gas") {
-								std::cout << "What is your monthly cost of gas? " << endl;
-								std::cin >> gasExpense;
+							if (topExpense[i] == "gas" || topExpense[i] == "Gas" ||topExpense[i] == "tansportation" || topExpense[i] == "transportation") {
+								std::cout << "What is your monthly cost of transportation? " << endl;
+								std::cin >> transportationExpense;
 								break;
 							}
 							if (topExpense[i] == "food" || topExpense[i] == "Food") {
@@ -384,7 +408,7 @@ void budgetMode(int programChoice){
 
 
 					std::cout << endl;
-					std::cout << "Gas expense: $" << gasExpense << endl;
+					std::cout << "Transportation expense: $" << transportationExpense << endl;
 					std::cout << "Food expense: $" << foodExpense << endl;
 					std::cout << "Mortgage/Rent expense: $" << mortgageExpense << endl;
 					std::cout << "Groceries expense: $" << groceriesExpense << endl;
@@ -415,9 +439,9 @@ void budgetMode(int programChoice){
 					for (int i = 0; i < arraySize; i++){
 						do {
 
-							if (topExpense[i] == "gas" || topExpense[i] == "Gas") {
-								cout << "What is your monthly cost of gas? " << endl;
-								cin >> gasExpense;
+							if (topExpense[i] == "gas" || topExpense[i] == "Gas" || topExpense[i] == "transportation" || topExpense[i] == "Transportation") {
+								cout << "What is your monthly cost of transportation? " << endl;
+								cin >> transportationExpense;
 								break;
 							}
 							if (topExpense[i] == "food" || topExpense[i] == "Food") {
@@ -449,18 +473,25 @@ void budgetMode(int programChoice){
 						} while (true);
 					}
 				}
+
+				std:: cout << setprecision(2) << fixed;
+				totalIncome = calculateIncome(singleIncome, spouseIncome);
+				housingExpense = calculateHousing(mortgageExpense, utilityExpense);
+				housingPercent = calculateHousingPercent(mortgageExpense, utilityExpense, totalIncome);
 				
 
 			break;	
 			} while (true);
 
 			cout << endl;
-			cout << "Gas expense: $" << gasExpense << endl;
+			cout << "Transportation expense: $" << transportationExpense << endl;
 			cout << "Food expense: $" << foodExpense << endl;
 			cout << "Mortgage/Rent expense: $" << mortgageExpense << endl;
 			cout << "Groceries expense: $" << groceriesExpense << endl;
 			cout << "Bills expense: $" << billsExpense << endl;
 			cout << "Utility expense: $" << utilityExpense << endl;
+			
+			maxHousingRule(housingPercent, MAXHOUSING);
 			
 			
 		
@@ -482,14 +513,14 @@ int main(){
 	double savings = 0;
 	double investments = 0;
 	
-	double gasExpense = 0;
+	double transportationExpense = 0;
 	double foodExpense = 0;
 	double mortgageExpense = 0;
 	double utilityExpense = 0;
 	double groceriesExpense = 0;
 	double billsExpense = 0;
 	
-	double gasPercent;
+	double transportationPercent;
 	double foodPercent;
 	double mortgagePercent;
 	double utilityPercent;
@@ -511,7 +542,7 @@ int main(){
 
 	double savingsRate;
 	double investRate;
-	double gasRate;
+	double transportationRate;
 	double foodRate;
 	double mortgageRate;
 	double utilityRate;
