@@ -570,19 +570,19 @@ int main(){
 
 
 	do{
-	cout << endl;
-	cout << "Would you like to continue the program?? " << endl;
-	cin >> startProgram;
-	cout << endl;
+	std::cout << endl;
+	std::cout << "Would you like to continue the program?? " << endl;
+	std::cin >> startProgram;
+	std::cout << endl;
 
 	if(startProgram == "yes" || startProgram == "Yes" || startProgram == "y" || startProgram == "Y"){
 		
 
-	cout << "Which program would you like to run? " << endl;
-	cout << "1: Expense Mode " << endl; 
-	cout << "2: Budget Mode " << endl;
-	cin >> programChoice;
-	cout << endl;
+	std::cout << "Which program would you like to run? " << endl;
+	std::cout << "1: Expense Mode " << endl; 
+	std::cout << "2: Budget Mode " << endl;
+	std::cin >> programChoice;
+	std::cout << endl;
 
 	
 
@@ -604,9 +604,9 @@ int main(){
 			
 		}
 		else {
-			cout << endl;
-			cout << "Ending program, goodbye. " << endl;
-			cout << endl;
+			std::cout << endl;
+			std::cout << "Ending program, goodbye. " << endl;
+			std::cout << endl;
 			return 0;
 			
 		}
