@@ -81,8 +81,8 @@ void maxHousingRule(double housingPercent, double const MAXHOUSING){
 
 void expenseMode(int programChoice){
 
-	double totalIncome;
-	double singleIncome;
+	double totalIncome = 0;
+	double singleIncome = 0;
 	double spouseIncome;
 	double savings = 0;
 	double investments = 0;
@@ -309,8 +309,8 @@ void budgetMode(int programChoice){
 
 
 	double totalIncome;
-	double singleIncome;
-	double spouseIncome;
+	double singleIncome = 0;
+	double spouseIncome = 0;
 	double savings = 0;
 	double investments = 0;
 	
@@ -523,8 +523,8 @@ int main(){
 	
 	
 	double totalIncome;
-	double singleIncome;
-	double spouseIncome;
+	double singleIncome = 0;
+	double spouseIncome = 0;
 	double savings = 0;
 	double investments = 0;
 	
