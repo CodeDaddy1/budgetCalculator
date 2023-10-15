@@ -211,7 +211,7 @@ void expenseMode(int programChoice){
 
 			do{
 			std::cout << "Do you put money in savings?\n";
-			std:: getline(std::cin, save);
+			std::cin >> save;
 
 			
 				if (save == "yes" || save == "Yes" || save == "Y" || save == "y") {
@@ -232,7 +232,7 @@ void expenseMode(int programChoice){
 
 			do{
 			std::cout << "Do you put money aside for investing?\n";
-			std::getline(std::cin, invest);
+			std::cin >> invest;
 
 				if (invest == "yes" || invest == "Yes" || invest == "Y" || invest == "y") {
 				std::cout << "How much was set aside for investments?\n";
