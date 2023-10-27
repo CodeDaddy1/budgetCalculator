@@ -19,6 +19,30 @@ double calculateExpense(double transportationExpense, double foodExpense, double
 	return totalExpense;
 }
 
+double calculateWants(double foodExpense, double clothingExpense, double personalExpense) {
+	double wantsExpense = foodExpense + clothingExpense + personalExpense;
+	return wantsExpense;
+}
+
+double calculateNeeds(double totalExpense, double wantsExpense) {
+	double needsExpense = totalExpense - wantsExpense;
+	return needsExpense;
+}
+
+double calculateNeedsPercent(double totalExpense, double totalIncome) {
+	double wantsExpense =0;
+	double needsExpense = calculateNeeds(totalExpense, wantsExpense);
+	double needsPercent = (needsExpense / totalIncome) * 100;
+	return needsPercent;
+}
+
+double calculateWantsPercent(double foodExpense, double clothingExpense, double personalExpense, double totalIncome) {
+	double wantsExpense = calculateWants(foodExpense, clothingExpense, personalExpense);
+	double wantsPercent = (wantsExpense / totalIncome) * 100;
+	return wantsPercent;
+
+}
+
 double calculateHousing(double mortgageExpense, double utilityExpense){
 	double housingExpense = mortgageExpense + utilityExpense;
 	return housingExpense;
@@ -93,7 +117,11 @@ void expenseMode(int programChoice){
 	double utilityExpense = 0;
 	double groceriesExpense = 0;
 	double billsExpense = 0;
-	
+	double personalExpense = 0;
+	double clothingExpense = 0;
+	double housingExpense = 0;
+	double wantsExpense = 0;
+	double needsExpense = 0;
 	
 	
 	double savingsPercent;
@@ -101,7 +129,7 @@ void expenseMode(int programChoice){
 	double piggyBank;
 	double piggyBankPercent;
 	
-	double totalExpense;
+	double totalExpense = 0;
 	double moneyRemaining = 0;
 	double remainingPercent;
 	string save;
@@ -139,6 +167,18 @@ void expenseMode(int programChoice){
 				std:: cin >> transportationExpense;
 
 				if (transportationExpense >= 0) {
+					break;
+				}
+				else {
+					std::cout << "Invalid input please try to input a numerical value representing a dollar amount\n";
+				}
+			} while (true);
+
+			do {
+				std::cout << "How much was spent on clothing?\n";
+				std::cin >> clothingExpense;
+
+				if (clothingExpense >= 0) {
 					break;
 				}
 				else {
@@ -263,6 +303,12 @@ void expenseMode(int programChoice){
 			double groceriesPercent = (groceriesExpense / totalIncome) * 100;
 			double billsPercent = (billsExpense / totalIncome) * 100;
 
+			wantsExpense = calculateWants(foodExpense, clothingExpense, personalExpense);
+			double wantsPercent = calculateWantsPercent(foodExpense, clothingExpense, personalExpense, totalIncome);
+			needsExpense = calculateNeeds(totalExpense, wantsExpense);
+			double needsPercent = calculateNeedsPercent(totalIncome, needsExpense);
+
+
 
 			
 			
@@ -296,13 +342,16 @@ void expenseMode(int programChoice){
 			std::cout << utilityPercent << "% of the income was spent on utilities." << endl;
 			std::cout << groceriesPercent << "% of the income was spent on groceries." << endl;
 			std::cout << billsPercent << "% of the income was spent on bills." << endl;
+			std::cout << wantsPercent << "% of your income is allocated to your wants." << endl;
+			std::cout << needsPercent << "% of your income is allocated to your needs" << endl;
 			std::cout << endl;
 			std::cout << "Your total amount set aside for savings and investment is $" << piggyBank << endl;
 			std::cout << "This accounts for " << piggyBankPercent << "% of the total household income." << endl;
 			std:: cout << endl;
 			std::cout << "Your remaining cash available is, $" << moneyRemaining << " this is " << remainingPercent << "% of the total income." << endl;
 			std:: cout << endl;
-
+			std::cout << "$" << wantsExpense << endl;
+			std::cout << "$" << needsExpense << endl;
 }
 
 void budgetMode(int programChoice){
@@ -323,14 +372,7 @@ void budgetMode(int programChoice){
 	double housingExpense = 0;
 	double wantsExpense = 0;
 	const double MAXHOUSING = 35.00;
-	int adjustBudget;
-	
-	
-	
-	double savingsPercent;
-	double investmentPercent;
-	double piggyBank;
-	double piggyBankPercent;
+
 	double housingPercent;
 	
 	double totalExpense;
@@ -338,16 +380,7 @@ void budgetMode(int programChoice){
 
 	string save;
 	string invest;
-
-	double savingsRate;
-	double investRate;
-	double transportationRate;
-	double foodRate;
-	double mortgageRate;
-	double utilityRate;
-	double billRate;
-	double groceriesRate;
-
+	
 	string incomeChoice;
 	const int arraySize = 3;
 	std::string topExpenseChoice[arraySize];
@@ -516,56 +549,8 @@ void budgetMode(int programChoice){
 
 int main(){
 	
-	
-
-
-	
-	
-	
-	double totalIncome;
-	double singleIncome = 0;
-	double spouseIncome = 0;
-	double savings = 0;
-	double investments = 0;
-	
-	double transportationExpense = 0;
-	double foodExpense = 0;
-	double mortgageExpense = 0;
-	double utilityExpense = 0;
-	double groceriesExpense = 0;
-	double billsExpense = 0;
-	
-	double transportationPercent;
-	double foodPercent;
-	double mortgagePercent;
-	double utilityPercent;
-	double groceriesPercent;
-	double billsPercent;
-
-	double savingsPercent;
-	double investmentPercent;
-	double piggyBank;
-	double piggyBankPercent;
-	
-	double totalExpense;
-	double moneyRemaining = 0;
-	
-	string save;
-	string invest;
 	string startProgram;
 	int programChoice;
-
-	double savingsRate;
-	double investRate;
-	double transportationRate;
-	double foodRate;
-	double mortgageRate;
-	double utilityRate;
-	double billRate;
-	double groceriesRate;
-	string incomeChoice;
-	const int arraySize = 3;
-	string topExpense[arraySize];
 	
 
 
